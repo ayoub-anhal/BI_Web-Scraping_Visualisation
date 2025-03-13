@@ -1,0 +1,1950 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/7/2025 11:33:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AYOUB"
+  DTS:CreatorName="AYOUB\ayoub.anhal"
+  DTS:DTSID="{2B6F8D6D-601C-45F8-B6AE-D5AEB0AE4D9B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="14348"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{1E1C88C2-2247-4C78-9170-CC280B230D6B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\dim metric insertion"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{7C2E9A23-AF8D-4ABB-8269-917E772A9BFE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dim metric insertion"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\dim metric insertion\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[dime_metric_type]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dim metric insertion\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{79AD067E-99CD-4F30-964E-170FBE179976}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYOUB_AYOUBTEST.BI_SSIS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dim metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dim metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[metric_type]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="metric_type"
+                      externalMetadataColumnId="Package\dim metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[metric_type]"
+                      lineageId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[metric_type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dim metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[metric_type_id]"
+                      dataType="i4"
+                      name="metric_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\dim metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[metric_type]"
+                      dataType="wstr"
+                      length="20"
+                      name="metric_type" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dim metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\dim metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dim metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dim metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dim metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dim metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dim metric insertion\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from dim_metric_type;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dim metric insertion\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{2E52809D-B387-4EFF-863E-57683DC66E1F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYOUB_AYOUBTEST.BI]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[metric_type_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[metric_type_id]"
+                      lineageId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[metric_type_id]"
+                      name="metric_type_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[metric_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[metric_type]"
+                      length="20"
+                      lineageId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[metric_type]"
+                      name="metric_type"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[metric_type_id]"
+                      dataType="i4"
+                      name="metric_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[metric_type]"
+                      dataType="wstr"
+                      length="20"
+                      name="metric_type" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[metric_type_id]"
+                      dataType="i4"
+                      lineageId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[metric_type_id]"
+                      name="metric_type_id" />
+                    <outputColumn
+                      refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[metric_type]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[metric_type]"
+                      name="metric_type" />
+                    <outputColumn
+                      refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\dim metric insertion.Paths[Sortie de source OLE DB]"
+              endId="Package\dim metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\dim metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\dime_date insertions"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{7F479068-C967-4833-8232-E63587139EC2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dime_date insertions"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\dime_date insertions\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[dime_date]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dime_date insertions\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{79AD067E-99CD-4F30-964E-170FBE179976}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYOUB_AYOUBTEST.BI_SSIS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[date]"
+                      cachedDataType="dbDate"
+                      cachedName="date"
+                      externalMetadataColumnId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]" />
+                    <inputColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[day]"
+                      cachedDataType="i4"
+                      cachedName="day"
+                      externalMetadataColumnId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[day]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[day]" />
+                    <inputColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[month]"
+                      cachedDataType="i4"
+                      cachedName="month"
+                      externalMetadataColumnId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[month]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[month]" />
+                    <inputColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[year]"
+                      cachedDataType="i4"
+                      cachedName="year"
+                      externalMetadataColumnId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[year]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[year]" />
+                    <inputColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[weekday]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="weekday"
+                      externalMetadataColumnId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[weekday]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[weekday]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date_id]"
+                      dataType="i4"
+                      name="date_id" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[day]"
+                      dataType="i4"
+                      name="day" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[month]"
+                      dataType="i4"
+                      name="month" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[year]"
+                      dataType="i4"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[weekday]"
+                      dataType="wstr"
+                      length="20"
+                      name="weekday" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dime_date insertions\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dime_date insertions\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dime_date insertions\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dime_date insertions\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from dim_date;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dime_date insertions\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{2E52809D-B387-4EFF-863E-57683DC66E1F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYOUB_AYOUBTEST.BI]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date_id]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date_id]"
+                      name="date_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[day]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[day]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[day]"
+                      name="day"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[month]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[month]"
+                      name="month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[year]"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[year]"
+                      name="year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[weekday]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[weekday]"
+                      length="20"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[weekday]"
+                      name="weekday"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date_id]"
+                      dataType="i4"
+                      name="date_id" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[day]"
+                      dataType="i4"
+                      name="day" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[month]"
+                      dataType="i4"
+                      name="month" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[year]"
+                      dataType="i4"
+                      name="year" />
+                    <externalMetadataColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[weekday]"
+                      dataType="wstr"
+                      length="20"
+                      name="weekday" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date_id]"
+                      dataType="i4"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date_id]"
+                      name="date_id" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
+                      dataType="dbDate"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[day]"
+                      dataType="i4"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[day]"
+                      name="day" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[month]"
+                      dataType="i4"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[month]"
+                      name="month" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[year]"
+                      dataType="i4"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[year]"
+                      name="year" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[weekday]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[weekday]"
+                      name="weekday" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\dime_date insertions.Paths[Sortie de source OLE DB]"
+              endId="Package\dime_date insertions\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\dime_date insertions\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{98AA962E-BDE9-4443-BFF1-BF866F63DA0E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{79AD067E-99CD-4F30-964E-170FBE179976}"
+          SQLTask:SqlStatementSource="DELETE FROM fact_meetrics;&#xA;DBCC CHECKIDENT ('fact_meetrics', RESEED, 0);&#xA;DELETE FROM dime_date;&#xA;DBCC CHECKIDENT ('dime_date', RESEED, 0);&#xA;DELETE FROM dime_metric_type;&#xA;DBCC CHECKIDENT ('dime_metric_type', RESEED, 0);&#xA;ALTER TABLE [dime_date] NOCHECK CONSTRAINT ALL;&#xA;ALTER TABLE [dime_metric_type] NOCHECK CONSTRAINT ALL;&#xA;ALTER TABLE [fact_meetrics] NOCHECK CONSTRAINT ALL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ABD7FD22-56B5-4021-84FE-9709E49BF2C4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{79AD067E-99CD-4F30-964E-170FBE179976}"
+          SQLTask:SqlStatementSource="ALTER TABLE [fact_meetrics] CHECK CONSTRAINT ALL;&#xA;ALTER TABLE [dime_date] CHECK CONSTRAINT ALL;&#xA;ALTER TABLE [dime_metric_type] CHECK CONSTRAINT ALL;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\fact metric insertion"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{8B0CE661-0398-4C0B-9A33-51B414871C19}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="fact metric insertion"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\fact metric insertion\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[fact_meetrics]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\fact metric insertion\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{79AD067E-99CD-4F30-964E-170FBE179976}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYOUB_AYOUBTEST.BI_SSIS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[timestamp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="timestamp"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[timestamp]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[timestamp]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[date_id]"
+                      cachedDataType="i4"
+                      cachedName="date_id"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date_id]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date_id]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[metric_type_id]"
+                      cachedDataType="i4"
+                      cachedName="metric_type_id"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[metric_type_id]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[metric_type_id]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[current_world_population]"
+                      cachedDataType="i8"
+                      cachedName="current_world_population"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[current_world_population]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[current_world_population]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[deaths]"
+                      cachedDataType="i8"
+                      cachedName="deaths"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[undernourished_people_in_the_world]"
+                      cachedDataType="i8"
+                      cachedName="undernourished_people_in_the_world"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[undernourished_people_in_the_world]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[undernourished_people_in_the_world]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[people_died_of_hunger]"
+                      cachedDataType="i8"
+                      cachedName="people_died_of_hunger"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[people_died_of_hunger]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[people_died_of_hunger]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[deaths_due_to_water_related_diseases]"
+                      cachedDataType="i8"
+                      cachedName="deaths_due_to_water_related_diseases"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_water_related_diseases]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_water_related_diseases]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[people_no_access_safe_drinking_water]"
+                      cachedDataType="i8"
+                      cachedName="people_no_access_safe_drinking_water"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[people_no_access_safe_drinking_water]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[people_no_access_safe_drinking_water]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[communicable_disease_deaths]"
+                      cachedDataType="i8"
+                      cachedName="communicable_disease_deaths"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[communicable_disease_deaths]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[communicable_disease_deaths]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[seasonal_flu_deaths]"
+                      cachedDataType="i8"
+                      cachedName="seasonal_flu_deaths"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[seasonal_flu_deaths]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[seasonal_flu_deaths]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[deaths_of_children_under_5]"
+                      cachedDataType="i8"
+                      cachedName="deaths_of_children_under_5"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_of_children_under_5]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_of_children_under_5]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[hiv_aids_infected]"
+                      cachedDataType="i8"
+                      cachedName="hiv_aids_infected"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[hiv_aids_infected]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[hiv_aids_infected]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[deaths_due_to_hiv_aids]"
+                      cachedDataType="i8"
+                      cachedName="deaths_due_to_hiv_aids"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_hiv_aids]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_hiv_aids]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[deaths_due_to_cancer]"
+                      cachedDataType="i8"
+                      cachedName="deaths_due_to_cancer"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_cancer]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_cancer]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[deaths_due_to_malaria]"
+                      cachedDataType="i8"
+                      cachedName="deaths_due_to_malaria"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_malaria]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_malaria]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[deaths_due_to_smoking]"
+                      cachedDataType="i8"
+                      cachedName="deaths_due_to_smoking"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_smoking]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_smoking]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[deaths_due_to_alcohol]"
+                      cachedDataType="i8"
+                      cachedName="deaths_due_to_alcohol"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_alcohol]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_alcohol]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[suicides]"
+                      cachedDataType="i8"
+                      cachedName="suicides"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[suicides]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[suicides]" />
+                    <inputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[road_traffic_accident_fatalities]"
+                      cachedDataType="i8"
+                      cachedName="road_traffic_accident_fatalities"
+                      externalMetadataColumnId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[road_traffic_accident_fatalities]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[road_traffic_accident_fatalities]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[fact_id]"
+                      dataType="i4"
+                      name="fact_id" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[timestamp]"
+                      dataType="dbTimeStamp"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date_id]"
+                      dataType="i4"
+                      name="date_id" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[metric_type_id]"
+                      dataType="i4"
+                      name="metric_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[current_world_population]"
+                      dataType="i8"
+                      name="current_world_population" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths]"
+                      dataType="i8"
+                      name="deaths" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[undernourished_people_in_the_world]"
+                      dataType="i8"
+                      name="undernourished_people_in_the_world" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[people_died_of_hunger]"
+                      dataType="i8"
+                      name="people_died_of_hunger" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_water_related_diseases]"
+                      dataType="i8"
+                      name="deaths_due_to_water_related_diseases" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[people_no_access_safe_drinking_water]"
+                      dataType="i8"
+                      name="people_no_access_safe_drinking_water" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[communicable_disease_deaths]"
+                      dataType="i8"
+                      name="communicable_disease_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[seasonal_flu_deaths]"
+                      dataType="i8"
+                      name="seasonal_flu_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_of_children_under_5]"
+                      dataType="i8"
+                      name="deaths_of_children_under_5" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[hiv_aids_infected]"
+                      dataType="i8"
+                      name="hiv_aids_infected" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_hiv_aids]"
+                      dataType="i8"
+                      name="deaths_due_to_hiv_aids" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_cancer]"
+                      dataType="i8"
+                      name="deaths_due_to_cancer" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_malaria]"
+                      dataType="i8"
+                      name="deaths_due_to_malaria" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_smoking]"
+                      dataType="i8"
+                      name="deaths_due_to_smoking" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[deaths_due_to_alcohol]"
+                      dataType="i8"
+                      name="deaths_due_to_alcohol" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[suicides]"
+                      dataType="i8"
+                      name="suicides" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[road_traffic_accident_fatalities]"
+                      dataType="i8"
+                      name="road_traffic_accident_fatalities" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\fact metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\fact metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\fact metric insertion\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\fact metric insertion\Source OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  fact_id, 
+        timestamp, 
+        date_id, 
+        metric_type_id,
+        current_world_population,
+        deaths,
+        undernourished_people_in_the_world,
+        people_died_of_hunger,
+        deaths_due_to_water_related_diseases,
+        people_no_access_safe_drinking_water,
+        communicable_disease_deaths,
+        seasonal_flu_deaths,
+        deaths_of_children_under_5,
+        hiv_aids_infected,
+        deaths_due_to_hiv_aids,
+        deaths_due_to_cancer,
+        deaths_due_to_malaria,
+        deaths_due_to_smoking,
+        deaths_due_to_alcohol,
+        suicides,
+        road_traffic_accident_fatalities
+FROM (
+    SELECT 
+        fact_id, 
+        timestamp, 
+        date_id, 
+        metric_type_id,
+        current_world_population,
+        deaths,
+        undernourished_people_in_the_world,
+        people_died_of_hunger,
+        deaths_due_to_water_related_diseases,
+        people_no_access_safe_drinking_water,
+        communicable_disease_deaths,
+        seasonal_flu_deaths,
+        deaths_of_children_under_5,
+        hiv_aids_infected,
+        deaths_due_to_hiv_aids,
+        deaths_due_to_cancer,
+        deaths_due_to_malaria,
+        deaths_due_to_smoking,
+        deaths_due_to_alcohol,
+        suicides,
+        road_traffic_accident_fatalities,
+        ROW_NUMBER() OVER (PARTITION BY date_id ORDER BY timestamp DESC) AS rn
+    FROM fact_metrics
+) AS subquery
+
+WHERE rn &lt;= 2;</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\fact metric insertion\Source OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{2E52809D-B387-4EFF-863E-57683DC66E1F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AYOUB_AYOUBTEST.BI]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[fact_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[fact_id]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[fact_id]"
+                      name="fact_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[timestamp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[timestamp]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[timestamp]"
+                      name="timestamp"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date_id]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[date_id]"
+                      name="date_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[metric_type_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[metric_type_id]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[metric_type_id]"
+                      name="metric_type_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[current_world_population]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[current_world_population]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[current_world_population]"
+                      name="current_world_population"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths]"
+                      name="deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[undernourished_people_in_the_world]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[undernourished_people_in_the_world]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[undernourished_people_in_the_world]"
+                      name="undernourished_people_in_the_world"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[people_died_of_hunger]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[people_died_of_hunger]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[people_died_of_hunger]"
+                      name="people_died_of_hunger"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_water_related_diseases]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_water_related_diseases]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_water_related_diseases]"
+                      name="deaths_due_to_water_related_diseases"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[people_no_access_safe_drinking_water]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[people_no_access_safe_drinking_water]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[people_no_access_safe_drinking_water]"
+                      name="people_no_access_safe_drinking_water"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[communicable_disease_deaths]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[communicable_disease_deaths]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[communicable_disease_deaths]"
+                      name="communicable_disease_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[seasonal_flu_deaths]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[seasonal_flu_deaths]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[seasonal_flu_deaths]"
+                      name="seasonal_flu_deaths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_of_children_under_5]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_of_children_under_5]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_of_children_under_5]"
+                      name="deaths_of_children_under_5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[hiv_aids_infected]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[hiv_aids_infected]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[hiv_aids_infected]"
+                      name="hiv_aids_infected"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_hiv_aids]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_hiv_aids]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_hiv_aids]"
+                      name="deaths_due_to_hiv_aids"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_cancer]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_cancer]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_cancer]"
+                      name="deaths_due_to_cancer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_malaria]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_malaria]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_malaria]"
+                      name="deaths_due_to_malaria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_smoking]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_smoking]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_smoking]"
+                      name="deaths_due_to_smoking"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_alcohol]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_alcohol]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[deaths_due_to_alcohol]"
+                      name="deaths_due_to_alcohol"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[suicides]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[suicides]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[suicides]"
+                      name="suicides"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[road_traffic_accident_fatalities]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[road_traffic_accident_fatalities]"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].Columns[road_traffic_accident_fatalities]"
+                      name="road_traffic_accident_fatalities"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[fact_id]"
+                      dataType="i4"
+                      name="fact_id" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[timestamp]"
+                      dataType="dbTimeStamp"
+                      name="timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[date_id]"
+                      dataType="i4"
+                      name="date_id" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[metric_type_id]"
+                      dataType="i4"
+                      name="metric_type_id" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[current_world_population]"
+                      dataType="i8"
+                      name="current_world_population" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths]"
+                      dataType="i8"
+                      name="deaths" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[undernourished_people_in_the_world]"
+                      dataType="i8"
+                      name="undernourished_people_in_the_world" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[people_died_of_hunger]"
+                      dataType="i8"
+                      name="people_died_of_hunger" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_water_related_diseases]"
+                      dataType="i8"
+                      name="deaths_due_to_water_related_diseases" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[people_no_access_safe_drinking_water]"
+                      dataType="i8"
+                      name="people_no_access_safe_drinking_water" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[communicable_disease_deaths]"
+                      dataType="i8"
+                      name="communicable_disease_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[seasonal_flu_deaths]"
+                      dataType="i8"
+                      name="seasonal_flu_deaths" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_of_children_under_5]"
+                      dataType="i8"
+                      name="deaths_of_children_under_5" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[hiv_aids_infected]"
+                      dataType="i8"
+                      name="hiv_aids_infected" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_hiv_aids]"
+                      dataType="i8"
+                      name="deaths_due_to_hiv_aids" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_cancer]"
+                      dataType="i8"
+                      name="deaths_due_to_cancer" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_malaria]"
+                      dataType="i8"
+                      name="deaths_due_to_malaria" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_smoking]"
+                      dataType="i8"
+                      name="deaths_due_to_smoking" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[deaths_due_to_alcohol]"
+                      dataType="i8"
+                      name="deaths_due_to_alcohol" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[suicides]"
+                      dataType="i8"
+                      name="suicides" />
+                    <externalMetadataColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB].ExternalColumns[road_traffic_accident_fatalities]"
+                      dataType="i8"
+                      name="road_traffic_accident_fatalities" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[fact_id]"
+                      dataType="i4"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[fact_id]"
+                      name="fact_id" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[timestamp]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[timestamp]"
+                      name="timestamp" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date_id]"
+                      dataType="i4"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[date_id]"
+                      name="date_id" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[metric_type_id]"
+                      dataType="i4"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[metric_type_id]"
+                      name="metric_type_id" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[current_world_population]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[current_world_population]"
+                      name="current_world_population" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths]"
+                      name="deaths" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[undernourished_people_in_the_world]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[undernourished_people_in_the_world]"
+                      name="undernourished_people_in_the_world" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[people_died_of_hunger]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[people_died_of_hunger]"
+                      name="people_died_of_hunger" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_water_related_diseases]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_water_related_diseases]"
+                      name="deaths_due_to_water_related_diseases" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[people_no_access_safe_drinking_water]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[people_no_access_safe_drinking_water]"
+                      name="people_no_access_safe_drinking_water" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[communicable_disease_deaths]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[communicable_disease_deaths]"
+                      name="communicable_disease_deaths" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[seasonal_flu_deaths]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[seasonal_flu_deaths]"
+                      name="seasonal_flu_deaths" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_of_children_under_5]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_of_children_under_5]"
+                      name="deaths_of_children_under_5" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[hiv_aids_infected]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[hiv_aids_infected]"
+                      name="hiv_aids_infected" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_hiv_aids]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_hiv_aids]"
+                      name="deaths_due_to_hiv_aids" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_cancer]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_cancer]"
+                      name="deaths_due_to_cancer" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_malaria]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_malaria]"
+                      name="deaths_due_to_malaria" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_smoking]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_smoking]"
+                      name="deaths_due_to_smoking" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_alcohol]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[deaths_due_to_alcohol]"
+                      name="deaths_due_to_alcohol" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[suicides]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[suicides]"
+                      name="suicides" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[road_traffic_accident_fatalities]"
+                      dataType="i8"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[road_traffic_accident_fatalities]"
+                      name="road_traffic_accident_fatalities" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\fact metric insertion.Paths[Sortie de source OLE DB]"
+              endId="Package\fact metric insertion\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\fact metric insertion\Source OLE DB.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{46E21E13-CF30-4C0A-957A-4D2CD937D30F}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\dime_date insertions" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{ACDE3D34-8ABE-47F8-85B2-C49D845176D8}"
+      DTS:From="Package\dime_date insertions"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\dim metric insertion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{441B23A3-F026-417F-AE4D-737ADC66E11C}"
+      DTS:From="Package\dim metric insertion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\fact metric insertion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{54BF0A34-04E4-4E33-AD0B-B0AA2EB232CB}"
+      DTS:From="Package\fact metric insertion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Execute SQL Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="22.1428571899936,22.1764705687968" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\dime_date insertions"
+          TopLeft="413.571429451814,31.3529411489885" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\dim metric insertion"
+          TopLeft="412.857143736007,106.294117553888" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\fact metric insertion"
+          TopLeft="35.0000000745057,107.823529317253" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Execute SQL Task 1"
+          TopLeft="229.285714773803,224.823529214698" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="184.542857189994,42.9764705687968">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="229.02857226182,9.17647058019174"
+              Start="0,0"
+              End="221.52857226182,9.17647058019174">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="110.51428613091,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.51428613091,0"
+                    Point2="114.51428613091,0"
+                    Point3="114.51428613091,4" />
+                  <mssgle:LineSegment
+                    End="114.51428613091,5.17647058019174" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114.51428613091,5.17647058019174"
+                    Point2="114.51428613091,9.17647058019174"
+                    Point3="118.51428613091,9.17647058019174" />
+                  <mssgle:LineSegment
+                    End="221.52857226182,9.17647058019174" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="500.21428659391,72.9529411489885">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.3411764048994"
+              Start="0,0"
+              End="0,25.8411764048994">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.8411764048994" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="412.857143736007,127.858823435571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-205.857143661502,0"
+              Start="0,0"
+              End="-198.357143661502,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-198.357143661502,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="121.000000074506,149.423529317253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="194.285714699298,75.399999897445"
+              Start="0,0"
+              End="194.285714699298,67.899999897445">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6999999487225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.6999999487225"
+                    Point2="0,37.6999999487225"
+                    Point3="4,37.6999999487225" />
+                  <mssgle:LineSegment
+                    End="190.285714699298,37.6999999487225" />
+                  <mssgle:CubicBezierSegment
+                    Point1="190.285714699298,37.6999999487225"
+                    Point2="194.285714699298,37.6999999487225"
+                    Point3="194.285714699298,41.6999999487225" />
+                  <mssgle:LineSegment
+                    End="194.285714699298,67.899999897445" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\dime_date insertions">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\dime_date insertions\Source OLE DB"
+          TopLeft="55.7142858328868,21.4117646871141" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\dime_date insertions\Destination OLE DB"
+          TopLeft="274.285714869597,152.176470454847" />
+        <EdgeLayout
+          Id="Package\dime_date insertions.Paths[Sortie de source OLE DB]"
+          TopLeft="130.514285832887,63.0117646871141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228.97142903671,89.1647057677326"
+              Start="0,0"
+              End="228.97142903671,81.6647057677326">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5823528838663" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.5823528838663"
+                    Point2="0,44.5823528838663"
+                    Point3="4,44.5823528838663" />
+                  <mssgle:LineSegment
+                    End="224.97142903671,44.5823528838663" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224.97142903671,44.5823528838663"
+                    Point2="228.97142903671,44.5823528838663"
+                    Point3="228.97142903671,48.5823528838663" />
+                  <mssgle:LineSegment
+                    End="228.97142903671,81.6647057677326" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dime_date insertions\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dime_date insertions\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\dim metric insertion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180.8,43.2"
+          Id="Package\dim metric insertion\Source OLE DB"
+          TopLeft="86.999998703599,75.9999988675118" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\dim metric insertion\Destination OLE DB"
+          TopLeft="556.999991700053,134.999997988343" />
+        <EdgeLayout
+          Id="Package\dim metric insertion.Paths[Sortie de source OLE DB]"
+          TopLeft="267.799998703599,97.5999988675118">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="289.199992996454,58.1999991208315"
+              Start="0,0"
+              End="281.699992996454,58.1999991208315">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="140.599996498227,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="140.599996498227,0"
+                    Point2="144.599996498227,0"
+                    Point3="144.599996498227,4" />
+                  <mssgle:LineSegment
+                    End="144.599996498227,54.1999991208315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.599996498227,54.1999991208315"
+                    Point2="144.599996498227,58.1999991208315"
+                    Point3="148.599996498227,58.1999991208315" />
+                  <mssgle:LineSegment
+                    End="281.699992996454,58.1999991208315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim metric insertion\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim metric insertion\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\fact metric insertion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\fact metric insertion\Destination OLE DB"
+          TopLeft="573.999991446734,94.9999985843897" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\fact metric insertion\Source OLE DB"
+          TopLeft="124.999998137355,49.999999254942" />
+        <EdgeLayout
+          Id="Package\fact metric insertion.Paths[Sortie de source OLE DB]"
+          TopLeft="274.599998137355,70.799999254942">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="299.399993309379,44.9999993294478"
+              Start="0,0"
+              End="291.899993309379,44.9999993294478">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="145.699996654689,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="145.699996654689,0"
+                    Point2="149.699996654689,0"
+                    Point3="149.699996654689,4" />
+                  <mssgle:LineSegment
+                    End="149.699996654689,40.9999993294478" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.699996654689,40.9999993294478"
+                    Point2="149.699996654689,44.9999993294478"
+                    Point3="153.699996654689,44.9999993294478" />
+                  <mssgle:LineSegment
+                    End="291.899993309379,44.9999993294478" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact metric insertion\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\fact metric insertion\Source OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

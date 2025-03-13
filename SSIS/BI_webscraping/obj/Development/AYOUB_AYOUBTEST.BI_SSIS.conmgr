@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="AYOUB_AYOUBTEST.BI_SSIS"
+  DTS:DTSID="{79AD067E-99CD-4F30-964E-170FBE179976}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=AYOUB\AYOUBTEST;Initial Catalog=BI_SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-BI_webscraping-{79AD067E-99CD-4F30-964E-170FBE179976}AYOUB\AYOUBTEST.BI_SSIS;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
